@@ -23,9 +23,9 @@ void Ex5(char *str){
 			if (str[i] != str[j])
 				kt = 1;
 	if (kt == 1)
-		printf("Valid!");
-	else
 		printf("Invalid!");
+	else
+		printf("Valid!");
 }
 
 int main(int argc, char *argv[]) {

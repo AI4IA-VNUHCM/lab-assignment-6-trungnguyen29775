@@ -28,9 +28,9 @@ void Ex5(char *str){
 			kt = 1;
 	}
 	if (kt == 1)
-		printf("Invalid");
+		printf("Invalid!");
 	else
-		printf("Valid");
+		printf("Valid!");
 }
 
 int main(int argc, char *argv[]) {

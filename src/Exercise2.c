@@ -31,9 +31,18 @@ void Ex2(int n, char* str[]) {
 			if (Strcmp(str[i], str[j]) == 1)
 			{
 				char temp[100];
-				strcpy(temp, str[i]);
-				strcpy(str[i], str[j]);
-				strcpy(str[j], temp);
+				for (int e = 0; i < strlen(str[i]); i++)
+					temp[e] = str[i][e];
+				for (int e = 0; e < strlen(str[j]); e++)
+				{
+					str[i][e] = str[j][e];
+					str[i][strlen(str[j])] = '\0';
+				}
+				for (int e = 0; e < strlen(str[j]); e++)
+				{
+					str[j][e] = str[i][e];
+					str[j][strlen(str[i])] = '\0';
+				}
 			}
 		}
 	for (int i = 0; i < n; i++)

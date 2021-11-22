@@ -12,9 +12,63 @@ Ex:
 #include <math.h>
 #include <string.h>
 
-void Ex2(int n, char *str[]){
+
+int LengStr(char str[100])
+{
+	int len = 0;
+	while (str[len] != '\0')
+		len += 1;
+	return len;
+}
+
+int Strcmp(char str1[100], char str2[100])
+{
+	for(int i=0;i<LengStr(str1);i++)
+		for (int j = 0; j < LengStr(str2); j++)
+		{
+			if (str1[i] > str2[i])
+				return 1;
+			if (str1[i] < str2[i])
+				return -1;
+		}
+	return 0;
+}
+
+void SwapStr(char str1[100], char str2[100])
+{
+	char temp[100];
+	for (int i = 0; i <LengStr(str1); i++)
+		temp[i] = str1[i];
+	int i = 0;
+	while (str2[i] != '\0')
+	{
+		str1[i] = str2[i];
+		i += 1;
+	}
+	str1[i] = '\0';
+	i = 0;
+	while (temp[i] != '\0')
+	{
+		str2[i] = temp[i];
+		i += 1;
+	}
+	str2[i] = '\0';
+}
+
+void Ex2(int n, char* str[]) {
 	//Your codes here
-	
+	for(int i=0;i<n-1;i++)
+		for (int j = i + 1; j < n; j++)
+		{
+			if (Strcmp(str[i], str[j]) == 1)
+				SwapStr(str[i], str[j]);
+		}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < LengStr(str[i]); j++)
+			printf("%c", str[i][j]);
+		printf(" ");
+	}
 }
 
 int main(int argc, char *argv[]) {

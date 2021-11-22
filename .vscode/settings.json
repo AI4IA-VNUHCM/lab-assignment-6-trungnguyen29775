@@ -3,5 +3,6 @@
         "stdlib.h": "c",
         "math.h": "c",
         "algorithm": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

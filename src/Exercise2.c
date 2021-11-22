@@ -23,29 +23,49 @@ int Strcmp(char str1[100], char str2[100])
 		}
 	return 0;
 }
+
+void SwapStr(char str1[100], char str2[100])
+{
+	char temp[100];
+	for (int i = 0; i < strlen(str1); i++)
+		temp[i] = str1[i];
+	int i = 0;
+	while (str2[i] != '\0')
+	{
+		str1[i] = str2[i];
+		i += 1;
+	}
+	str1[i] = '\0';
+	i = 0;
+	while (temp[i] != '\0')
+	{
+		str2[i] = temp[i];
+		i += 1;
+	}
+	str2[i] = '\0';
+}
+
+int LengStr(char str[100])
+{
+	int len = 0;
+	while (str[len] != '\0')
+		len += 1;
+	return len;
+}
 void Ex2(int n, char* str[]) {
+	//Your codes here
 	for(int i=0;i<n-1;i++)
 		for (int j = i + 1; j < n; j++)
 		{
 			if (Strcmp(str[i], str[j]) == 1)
-			{
-				char temp[100];
-				for (int e = 0; e < strlen(str[i]); e++)
-					temp[e] = str[i][e];
-				for (int e = 0; e < strlen(str[j]); e++)
-				{
-					str[i][e] = str[j][e];
-					str[i][strlen(str[j])] = '\0';
-				}
-				for (int e = 0; e < strlen(temp); e++)
-				{
-					str[j][e] = temp[e];
-					str[j][strlen(temp)] = '\0';
-				}
-			}
+				SwapStr(str[i], str[j]);
 		}
 	for (int i = 0; i < n; i++)
-		printf("%s ", str[i]);
+	{
+		for (int j = 0; j < LengStr(str[i]); j++)
+			printf("%c", str[i][j]);
+		printf(" ");
+	}
 }
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating

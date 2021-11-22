@@ -37,7 +37,7 @@ void Ex2(int n, char* str[]) {
 					str[i][e] = str[j][e];
 					str[i][strlen(str[j])] = '\0';
 				}
-				for (int e = 0; e < strlen(str[j]); e++)
+				for (int e = 0; e < strlen(temp); e++)
 				{
 					str[j][e] = temp[e];
 					str[j][strlen(temp)] = '\0';

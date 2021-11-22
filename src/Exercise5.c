@@ -24,7 +24,7 @@ void Ex5(char *str){
 		int acii2 = str[strlen(str) - i - 1];
 		if (acii1!=acii2-2 && str[i]!='(')
 			kt = 1;
-		if (str[i] == '(' and acii1 != acii2 - 1)
+		if (str[i] == '(' && acii1 != acii2 - 1)
 			kt = 1;
 	}
 	if (kt == 1)

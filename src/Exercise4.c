@@ -32,7 +32,7 @@ void Ex4(char *str){
 			str[e] = '\0';
 	}
 	for (int e = i; e < len; e++)
-		if(str[e]!='/0')
+		if(str[e]!='\0')
 			printf("%c", str[e]);
 }
 

@@ -15,7 +15,7 @@ Ex:
 #include <math.h>
 #include <string.h>
 
-void Ex5(char *str[]){
+void Ex5(char *str){
 	//Your codes here
 	int kt = 0;	
 	for (int i = 0; i < strlen(str)/2; i++)

@@ -11,42 +11,34 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-void Ex2(int n, char *str[]){
-	//Your codes here
-	char **StrArr[100];
-	int count=0;
-	while(str[count]!=" ")
-		count+=1;
-	for(int i=0;i<count;i++)
-		StrArr[0][i]=str[i];
-	count=0;
-	for(int i=1;i<n;i++)
-	{
-		for(int j=count;j<strlen(str);j++)
-			if(str[j]==" "){
-				int Len=0;
-				while(str[Len]!=" " || str[Len]!= '\0')
-					Len+=1;
-				for(int e=0;e<Len;e++)
-					StrArr[i][e]=str[e+j+1];
-			}
-	}
-	for(int i=0;i<n-1;i++)
-		for(int j=i+1;j<n;j++)
+int Strcmp(char str1[100], char str2[100])
+{
+	for(int i=0;i<strlen(str1);i++)
+		for (int j = 0; j < strlen(str2); j++)
 		{
-			if(strcmp(StrArr[i],StrArr[j])>0)
+			if (str1[i] > str2[i])
+				return 1;
+			if (str1[i] < str2[i])
+				return -1;
+		}
+	return 0;
+}
+void Ex2(int n, char* str[]) {
+	//Your codes here
+	for(int i=0;i<n-1;i++)
+		for (int j = i + 1; j < n; j++)
+		{
+			if (Strcmp(str[i], str[j]) == 1)
 			{
-				char *temp[100];
-				strcpy(temp,StrArr[i]);
-				strcpy(StrArr[i],StrArr[j]);
-				strcpy(StrArr[j],temp);
+				char temp[100];
+				strcpy(temp, str[i]);
+				strcpy(str[i], str[j]);
+				strcpy(str[j], temp);
 			}
 		}
-	for(int i=0;i<n;i++)
-		printf("%s ",StrArr[i]);
-	
+	for (int i = 0; i < n; i++)
+		printf("%s ", str[i]);
 }
-
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	argc--;
